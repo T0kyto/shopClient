@@ -10,12 +10,12 @@ const ItemsPage = () => {
     const { user, items } = useContext(AppContext);
     const [itemsState, setItems] = useState<IItem[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 10; // Можно изменить в соответствии с желаемым размером страницы
+    const pageSize = 8;
 
     const fetchItems = async () => {
         try {
             const fetchedItems = await getItems(user.user.token, currentPage, pageSize);
-            setItems(fetchedItems); // Предполагается, что ответ содержит поле data
+            setItems(fetchedItems);
             console.log(fetchedItems)
             items.setItems(fetchedItems)
         } catch (e) {
@@ -27,7 +27,6 @@ const ItemsPage = () => {
         fetchItems();
     }, [currentPage]); // Вызываем fetchItems при изменении currentPage
 
-    // Функция для изменения страницы
     const paginate = (pageNumber: number) => {
         setCurrentPage(pageNumber);
     };

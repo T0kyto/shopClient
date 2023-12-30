@@ -37,7 +37,7 @@ const Login = observer(() => {
 
     return (
         <div className={classes.login}>
-            <h1>Login</h1>
+            <h1 className={classes.formTitle}>Login</h1>
 
             <div className={classes.customForm}>
                 <div className={classes.inputArea}>
